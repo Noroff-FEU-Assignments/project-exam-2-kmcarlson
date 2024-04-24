@@ -23,8 +23,8 @@ test12345 - KenCar45875@stud.noroff.no
 ### User Stories
 
 The client has specified the following requirements in the form of *User Stories*:
-1. A user with a `stud.noroff.no` email may register
-2. A registered user may login
+1. A user with a `stud.noroff.no` email may register - ok
+2. A registered user may login - ok 
 3. A registered user may update their avatar and banner
 4. A registered user may logout
 5. A registered user may view a list of `Posts`

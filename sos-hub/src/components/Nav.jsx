@@ -13,6 +13,9 @@ const Nav = () => {
       <Link to="/contact" className="hover:text-pink-200">
         Contact
       </Link>
+      <Link to="/profiles" className="hover:text-pink-200">
+        Profiles
+      </Link>
     </nav>
   );
 };

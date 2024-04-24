@@ -1,14 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Importer useNavigate fra react-router-dom
 import Nav from "./Nav";
 import { useAuth } from "./AuthContext";
 
 const Header = () => {
   const { accessToken } = useAuth();
+  const navigate = useNavigate(); 
 
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("userData");
+    navigate("/"); 
     window.location.reload();
   };
 
@@ -18,7 +21,6 @@ const Header = () => {
         <div className="flex items-center">
           <div className="mr-4">
             <h3 className="uppercase">sos hub</h3>
-            {/* <img src="logo.png" alt="Logo" className="h-8" /> */}
           </div>
           <Nav />
         </div>
@@ -33,7 +35,7 @@ const Header = () => {
             </Link>
           )}
           {accessToken ? (
-            <Link to="/profil" className="hover:text-pink-200">
+            <Link to="/account" className="hover:text-pink-200">
               Min Profil
             </Link>
           ) : (

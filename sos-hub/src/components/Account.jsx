@@ -18,7 +18,7 @@ const Profile = () => {
    
         });
         console.log('min',response)
-        console.log('hallo',re)
+       
         if (response.ok) {
           const data = await response.json();
           setProfileData(data);
@@ -36,11 +36,15 @@ const Profile = () => {
   }, [accessToken, name]);
 
   if (!profileData) {
-    return <div>Loading...</div>;
+    return <div>
+      <h3>halla min profil</h3>
+      
+      Loading...</div>;
   }
 
   return (
     <div>
+      <h3>halla min profil</h3>
       <h2>Profil: {profileData.name}</h2>
     </div>
   );
