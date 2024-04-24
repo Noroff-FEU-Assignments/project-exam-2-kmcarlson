@@ -18,6 +18,8 @@ The API you are using for this project can be found under Social EndPoints in th
 [API Guide](https://noroff-api-docs.netlify.app/social-endpoints/authentication)
 [API Documentation](https://nf-api.onrender.com/docs)
 
+test12345 - KenCar45875@stud.noroff.no
+
 ### User Stories
 
 The client has specified the following requirements in the form of *User Stories*:
