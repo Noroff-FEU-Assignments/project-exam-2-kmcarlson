@@ -11,6 +11,7 @@ import Profiles from "./pages/Profiles";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
 import Home from "./components/Home"; 
+import Contact from "./pages/Contact";
 
 function App() {
  return (
@@ -25,6 +26,7 @@ function App() {
             <Route path="/account" element={<Account />} />
             <Route path="/profiles" element={<Profiles />} />
             <Route path="/About" element={<About />} />
+            <Route path="/Contact" element={<Contact />} />
             <Route path="/profile/:name" element={<Profile />} /> 
           </Routes>
           <Footer />
