@@ -20,8 +20,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/account" element={<Account />} />
-            <Route path="/profiles" element={<Profiles />} /> 
-            <Route path="/profile" element={<Profile />} /> 
+            <Route path="/profiles" element={<Profiles />} />
+            <Route path="/profile/:name" element={<Profile />} /> 
           </Routes>
           <Footer />
         </>

@@ -8,6 +8,8 @@ const Profiles = () => {
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  
+
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
@@ -50,9 +52,9 @@ const Profiles = () => {
       <h2 className="text-2xl font-bold mb-4">Profiles</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {profiles.map((profile) => (
-          <Link key={profile.id} to={`/profile/${profile.id}`}>
+          <Link key={profile.name} to={`/profile/${profile.name}`}>
             <div className="bg-white rounded-lg shadow-md p-4 flex flex-col">
-              <p className="text-lg font-semibold mb-2">Name: {profile.name}</p>
+              <p className="text-lg font-semibold mb-2 text-cyan-700" >Name: {profile.name}</p>
               <p className="text-gray-600">Email: {profile.email}</p>
               {profile.avatar && <img key={`avatar-${profile.id}`} src={profile.avatar} alt="Avatar" className="w-full h-auto object-cover max-h-40 mt-2" />}
               {profile.banner && <img key={`banner-${profile.id}`} src={profile.banner} alt="Banner" className="w-full h-auto object-cover max-h-40 mt-2" />}
