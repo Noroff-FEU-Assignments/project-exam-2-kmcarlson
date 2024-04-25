@@ -25,8 +25,8 @@ test12345 - KenCar45875@stud.noroff.no
 The client has specified the following requirements in the form of *User Stories*:
 1. A user with a `stud.noroff.no` email may register - ok
 2. A registered user may login - ok 
-3. A registered user may update their avatar and banner
-4. A registered user may logout
+3. A registered user may update their avatar and banner - ok 
+4. A registered user may logout - ok 
 5. A registered user may view a list of `Posts`
 6. A registered user may view a list of `Profiles`
 7. A registered user may view a single `Post` by `id`
