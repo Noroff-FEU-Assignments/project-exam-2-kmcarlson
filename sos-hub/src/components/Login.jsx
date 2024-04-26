@@ -4,13 +4,13 @@ import { useAuth } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
- const { saveAccessToken } = useAuth();
- const navigate = useNavigate();
- const [email, setEmail] = useState("");
- const [password, setPassword] = useState("");
- const [error, setError] = useState(null);
+  const { saveAccessToken } = useAuth();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
- const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
@@ -25,25 +25,25 @@ const Login = () => {
       if (response.ok) {
         const data = await response.json();
         const userData = {
-          name: data.name, 
-          email: data.email, 
+          name: data.name,
+          email: data.email,
         };
         saveAccessToken(data.accessToken, userData);
         console.log(data);
 
         navigate(`/account`);
       } else {
-        const errorMessage = await response.text(); 
+        const errorMessage = await response.text();
         console.error("Innlogging mislyktes:", errorMessage);
-        setError("Feil brukernavn eller passord."); 
+        setError("Feil brukernavn eller passord.");
       }
     } catch (error) {
       console.error("Feil:", error);
       setError("Noe gikk galt. Vennligst prøv igjen.");
     }
- };
+  };
 
- return (
+  return (
     <div className="flex justify-center items-center h-screen">
       <div className="max-w-md w-full p-8 rounded-lg shadow-lg">
         <pre>
@@ -86,7 +86,7 @@ const Login = () => {
         </form>
       </div>
     </div>
- );
+  );
 };
 
 export default Login;

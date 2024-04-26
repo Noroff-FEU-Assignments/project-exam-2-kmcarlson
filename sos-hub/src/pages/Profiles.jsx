@@ -4,19 +4,17 @@ import { BASE_URL } from "../constants/ApiUrl";
 import { useAuth } from "../components/AuthContext";
 
 const Profiles = () => {
-  const { accessToken } = useAuth(); 
+  const { accessToken } = useAuth();
   const [profiles, setProfiles] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  
 
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
         const response = await fetch(`${BASE_URL}/profiles`, {
           headers: {
-            Authorization: `Bearer ${accessToken}`
-          }
+            Authorization: `Bearer ${accessToken}`,
+          },
         });
         if (response.ok) {
           const data = await response.json();
@@ -32,13 +30,15 @@ const Profiles = () => {
     };
 
     fetchProfiles();
-  }, [accessToken]); 
+  }, [accessToken]);
 
   if (!accessToken) {
     return (
       <div className="text-center">
         <p>Du må logge inn for å se profiler.</p>
-        <Link to="/login" className="text-blue-500 hover:underline">Logg inn</Link>
+        <Link to="/login" className="text-blue-500 hover:underline">
+          Logg inn
+        </Link>
       </div>
     );
   }
@@ -54,10 +54,26 @@ const Profiles = () => {
         {profiles.map((profile) => (
           <Link key={profile.name} to={`/profile/${profile.name}`}>
             <div className="bg-white rounded-lg shadow-md p-4 flex flex-col">
-              <p className="text-lg font-semibold mb-2 text-cyan-700" >Name: {profile.name}</p>
+              <p className="text-lg font-semibold mb-2 text-cyan-700">
+                Name: {profile.name}
+              </p>
               <p className="text-gray-600">Email: {profile.email}</p>
-              {profile.avatar && <img key={`avatar-${profile.id}`} src={profile.avatar} alt="Avatar" className="w-full h-auto object-cover max-h-40 mt-2" />}
-              {profile.banner && <img key={`banner-${profile.id}`} src={profile.banner} alt="Banner" className="w-full h-auto object-cover max-h-40 mt-2" />}
+              {profile.avatar && (
+                <img
+                  key={`avatar-${profile.id}`}
+                  src={profile.avatar}
+                  alt="Avatar"
+                  className="w-full h-auto object-cover max-h-40 mt-2"
+                />
+              )}
+              {profile.banner && (
+                <img
+                  key={`banner-${profile.id}`}
+                  src={profile.banner}
+                  alt="Banner"
+                  className="w-full h-auto object-cover max-h-40 mt-2"
+                />
+              )}
             </div>
           </Link>
         ))}

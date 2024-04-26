@@ -10,30 +10,34 @@ import Account from "./components/Account";
 import Profiles from "./pages/Profiles";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
-import Home from "./components/Home"; 
+import Home from "./components/Home";
 import Contact from "./pages/Contact";
+import Posts from "./pages/Posts";
+import Post from "./pages/Post";
 
 function App() {
- return (
+  return (
     <AuthProvider>
       <BrowserRouter>
         <>
           <Header />
           <Routes>
-            <Route path="/" element={<Home />} /> 
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/account" element={<Account />} />
             <Route path="/profiles" element={<Profiles />} />
             <Route path="/About" element={<About />} />
             <Route path="/Contact" element={<Contact />} />
-            <Route path="/profile/:name" element={<Profile />} /> 
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/:id" element={<Post />} />
+            <Route path="/profile/:name" element={<Profile />} />
           </Routes>
           <Footer />
         </>
       </BrowserRouter>
     </AuthProvider>
- );
+  );
 }
 
 export default App;

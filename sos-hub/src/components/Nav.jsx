@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Nav = () => {
- const [isOpen, setIsOpen] = useState(false);
- const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
- const toggleMenu = () => {
+  const toggleMenu = () => {
     setIsOpen(!isOpen);
- };
+  };
 
- return (
+  return (
     <nav className="flex flex-col md:flex-row space-x-4 md:space-x-8">
       <div className="md:hidden">
         <button
@@ -37,21 +37,41 @@ const Nav = () => {
           isOpen ? "block" : "hidden"
         } space-y-2 md:space-y-0 md:space-x-8`}
       >
-        <Link to="/" className={`block md:inline-block hover:text-pink-200 ${location.pathname === '/' ? 'active' : ''}`}>
-          Home
-        </Link>
-        <Link to="/about" className={`block md:inline-block hover:text-pink-200 ${location.pathname === '/about' ? 'active' : ''}`}>
+        <Link
+          to="/about"
+          className={`block md:inline-block hover:text-pink-200 ${
+            location.pathname === "/about" ? "active" : ""
+          }`}
+        >
           About
         </Link>
-        <Link to="/contact" className={`block md:inline-block hover:text-pink-200 ${location.pathname === '/contact' ? 'active' : ''}`}>
+        <Link
+          to="/contact"
+          className={`block md:inline-block hover:text-pink-200 ${
+            location.pathname === "/contact" ? "active" : ""
+          }`}
+        >
           Contact
         </Link>
-        <Link to="/profiles" className={`block md:inline-block hover:text-pink-200 ${location.pathname === '/profiles' ? 'active' : ''}`}>
+        <Link
+          to="/profiles"
+          className={`block md:inline-block hover:text-pink-200 ${
+            location.pathname === "/profiles" ? "active" : ""
+          }`}
+        >
           Profiles
+        </Link>
+        <Link
+          to="/posts"
+          className={`block md:inline-block hover:text-pink-200 ${
+            location.pathname === "/posts" ? "active" : ""
+          }`}
+        >
+          posts
         </Link>
       </div>
     </nav>
- );
+  );
 };
 
 export default Nav;
