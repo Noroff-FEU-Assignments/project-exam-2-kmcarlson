@@ -61,7 +61,7 @@ const Account = () => {
       console.error("Feil ved oppdatering av media:", error);
     } finally {
       setIsUpdating(false);
-      window.location.reload();
+      // window.location.reload();
     }
  };
 
