@@ -103,7 +103,7 @@ const Account = () => {
         });
         setUserPosts(updatedPosts);
         console.log("Post updated successfully");
-        setSelectedPost(null); // Lukk modalen etter at oppdateringen er fullført
+        setSelectedPost(null); 
       } else {
         console.error("Error updating post:", response.statusText);
       }
