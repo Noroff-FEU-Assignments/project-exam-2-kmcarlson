@@ -18,13 +18,13 @@ const Post = () => {
         });
 
         if (!response.ok) {
-          throw new Error("Noe gikk galt ved henting av post");
+          throw new Error("Something went wrong fetching the post");
         }
 
         const data = await response.json();
         setPost(data);
       } catch (error) {
-        console.error("Feil ved henting av post:", error);
+        console.error("Error fetching post:", error);
       }
     };
 
@@ -32,12 +32,13 @@ const Post = () => {
   }, [accessToken, id]);
 
   if (!post) {
-    return <div>Laster...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
     <div>
       <h1>{post.title}</h1>
+      <p>{post.body}</p>
     </div>
   );
 };

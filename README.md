@@ -27,13 +27,13 @@ The client has specified the following requirements in the form of *User Stories
 2. A registered user may login - ok 
 3. A registered user may update their avatar and banner - ok 
 4. A registered user may logout - ok 
-5. A registered user may view a list of `Posts`
-6. A registered user may view a list of `Profiles`
-7. A registered user may view a single `Post` by `id`
-8. A registered user may view a single `Profile` by `name`
-9. A registered user may create a `Post`
-10. A registered user may update a `Post` they own
-11. A registered user may delete a `Post` they own
+5. A registered user may view a list of `Posts` - ok
+6. A registered user may view a list of `Profiles` - ok 
+7. A registered user may view a single `Post` by `id`- ok 
+8. A registered user may view a single `Profile` by `name` - ok
+9. A registered user may create a `Post` - ok 
+10. A registered user may update a `Post` they own - ok
+11. A registered user may delete a `Post` they own - ok 
 12. A registered user may create a `Comment` on any `Post`
 13. A registered user may `react` to any `Post` with an emoji
 14. A registered user may `follow` and `unfollow` another `Profile`

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { BASE_URL } from "../constants/ApiUrl";
 import { useAuth } from "../components/AuthContext";
 
 const Profile = () => {
   const { name } = useParams();
   const [profileData, setProfileData] = useState(null);
+  const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const { accessToken } = useAuth();
 
@@ -34,8 +35,33 @@ const Profile = () => {
     fetchProfile();
   }, [name, accessToken]);
 
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch(`${BASE_URL}/profiles/${name}/posts`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          setPosts(data);
+        } else {
+          console.error("Feil ved henting av poster:", response.statusText);
+        }
+      } catch (error) {
+        console.error("Feil ved henting av poster:", error);
+      }
+    };
+
+    if (profileData) {
+      fetchPosts();
+    }
+  }, [name, accessToken, profileData]);
+
   if (loading) {
-    return <div>Hallo - Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -61,7 +87,7 @@ const Profile = () => {
                   className="w-full h-auto object-cover max-h-40"
                 />
               ) : (
-                <p className="text-gray-800">Ingen banner tilgjengelig</p>
+                <p className="text-gray-800">No banner available</p>
               )}
             </div>
             <div className="mb-4">
@@ -73,22 +99,30 @@ const Profile = () => {
                   className="w-full h-auto object-cover max-h-40"
                 />
               ) : (
-                <p className="text-gray-800">Ingen avatar tilgjengelig</p>
+                <p className="text-gray-800">No avatar available</p>
               )}
             </div>
             <div className="mb-4">
-              <h2 className="text-lg font-semibold">Antall innlegg:</h2>
+              <h2 className="text-lg font-semibold">Number of posts:</h2>
               <p className="text-gray-800">{profileData._count.posts}</p>
             </div>
             <div className="mb-4">
-              <h2 className="text-lg font-semibold">Antall følgere:</h2>
+              <h2 className="text-lg font-semibold">Number of followers:</h2>
               <p className="text-gray-800">{profileData._count.followers}</p>
             </div>
             <div className="mb-4">
-              <h2 className="text-lg font-semibold">Antall som følges:</h2>
+              <h2 className="text-lg font-semibold">Number following:</h2>
               <p className="text-gray-800">{profileData._count.following}</p>
             </div>
           </div>
+          <h3 className="text-2xl font-bold mb-4">Posts by {profileData.name}</h3>
+          <ul>
+            {posts.map((post) => (
+              <li key={post.id}>
+                <Link to={`/posts/${post.id}`}>{post.title}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>

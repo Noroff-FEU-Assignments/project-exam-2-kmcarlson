@@ -14,6 +14,7 @@ import Home from "./components/Home";
 import Contact from "./pages/Contact";
 import Posts from "./pages/Posts";
 import Post from "./pages/Post";
+import CreatePost from "./pages/CreatePost"; 
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/:id" element={<Post />} />
             <Route path="/profile/:name" element={<Profile />} />
+            <Route path="/create-post" element={<CreatePost />} />
           </Routes>
           <Footer />
         </>
