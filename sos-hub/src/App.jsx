@@ -30,11 +30,12 @@ function App() {
   );
 }
 
+
+
 function AppRoutes() {
   const location = useLocation();
 
   useEffect(() => {
-
     const path = location.pathname;
     let title = "The SOS hub ";
     switch (path) {
@@ -43,6 +44,9 @@ function AppRoutes() {
         break;
       case "/login":
         title = "Login - " + title;
+        break;
+      case "/profile":
+        title = "Profile - " + title;
         break;
       case "/register":
         title = "Register - " + title;
@@ -67,6 +71,10 @@ function AppRoutes() {
         break;
       default:
 
+        if (path.startsWith("/profile/")) {
+          const name = path.substring("/profile/".length);
+          title = `Profile - ${name} - ${title}`;
+        }
         break;
     }
     document.title = title;
