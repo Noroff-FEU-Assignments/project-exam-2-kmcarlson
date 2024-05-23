@@ -10,6 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource/merriweather": "^5.0.13",
+    "@fontsource/open-sans": "^5.0.28",
+    "@fontsource/roboto": "^5.0.13",
     "axios": "^1.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

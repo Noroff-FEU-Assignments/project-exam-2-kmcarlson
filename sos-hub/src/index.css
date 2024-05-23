@@ -22,6 +22,19 @@ h1 {
   line-height: 1.1;
 }
 
+p {
+  @apply font-sans;
+}
+
+h1 {
+  @apply font-roboto;
+}
+
+h2 {
+  @apply font-merriweather;
+}
+
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;

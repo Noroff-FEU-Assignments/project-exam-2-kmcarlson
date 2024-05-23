@@ -15,6 +15,10 @@ import Contact from "./pages/Contact";
 import Posts from "./pages/Posts";
 import Post from "./pages/Post";
 import CreatePost from "./pages/CreatePost";
+import '@fontsource/open-sans';
+import '@fontsource/roboto';
+import '@fontsource/merriweather';
+
 
 function App() {
   return (
