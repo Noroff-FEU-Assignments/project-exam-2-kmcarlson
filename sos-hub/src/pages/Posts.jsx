@@ -34,7 +34,7 @@ const Posts = () => {
     return (
       <div className="text-center">
         <p>Du må logge inn for å se poster.</p>
-        <Link to="/login" className="text-blue-500 hover:underline">
+        <Link to="/login" className="text-blue-900 hover:underline">
           Logg inn
         </Link>
       </div>
@@ -45,7 +45,7 @@ const Posts = () => {
     <div className="container mx-auto px-4">
       <h1 className="text-4xl font-bold mb-4">Poster</h1>
       <div className="mb-4">
-        <Link to="/create-post" className="text-blue-500 hover:underline">
+        <Link to="/create-post" className="text-blue-900 hover:underline">
           Opprett ny post
         </Link>
       </div>

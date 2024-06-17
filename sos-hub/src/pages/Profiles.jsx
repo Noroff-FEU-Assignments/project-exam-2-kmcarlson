@@ -36,7 +36,7 @@ const Profiles = () => {
     return (
       <div className="text-center">
         <p>Du må logge inn for å se profiler.</p>
-        <Link to="/login" className="text-blue-500 hover:underline">
+        <Link to="/login" className="text-blue-900 hover:underline">
           Logg inn
         </Link>
       </div>

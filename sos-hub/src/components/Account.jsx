@@ -228,8 +228,11 @@ return (
           {userPosts.map(post => (
             <li key={post.id}>
               <Link to={`/posts/${post.id}`}>{post.title}</Link>
-              <button onClick={() => handleDelete(post.id)}>Delete</button>
-              <button onClick={() => setSelectedPost(post)}>Update</button>
+              <button onClick={() => handleDelete(post.id)}
+                className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
+                >Delete</button>
+              <button onClick={() => setSelectedPost(post)}
+                className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Update</button>
             </li>
           ))}
         </ul>
@@ -239,7 +242,7 @@ return (
       {!showUpdateForm ? (
         <button
           onClick={() => setShowUpdateForm(true)}
-          className="bg-pink-500 hover:bg-pink-700 text-black font-bold py-2 px-4 rounded"
+          className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
         >
           Update Avatar/Banner
         </button>
@@ -261,7 +264,7 @@ return (
           />
           <button
             onClick={updateMedia}
-            className="bg-pink-500 hover:bg-pink-700 text-black font-bold py-2 px-4 rounded mt-4"
+            className="bg-pink-500 hover:bg-blue-900 text-black font-bold py-2 px-4 rounded mt-4"
           >
             Update Avatar/Banner
           </button>

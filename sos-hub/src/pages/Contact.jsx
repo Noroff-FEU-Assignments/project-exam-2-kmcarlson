@@ -33,7 +33,7 @@ const Contact = () => {
           {errors.body && <span className="text-red-500 font-bold">{errors.body.type === 'required' ? 'Message is required' : errors.body.type === 'minLength' ? 'Message must be at least 3 characters' : 'Message must be no more than 1000 characters'}</span>}
         </div>
         <div>
-          <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+          <button type="submit" className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-pink-500 hover:bg-blue-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
             Send
           </button>
         </div>

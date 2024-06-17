@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-pink-500 text-white p-4">
+    <header className="bg-pink-500 text-blue-900 p-4 uppercase">
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link

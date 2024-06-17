@@ -105,15 +105,15 @@ const Post = () => {
           onChange={(e) => setCommentText(e.target.value)}
           placeholder="Add a comment..."
         />
-        <button type="submit">Comment</button>
+        <button type="submit" className="bg-pink-500 hover:bg-blue-900 py-2 px-4 text-white font-bold rounded">Comment</button>
       </form>
 
       <div>
-        <button onClick={() => setReaction("👍")}>👍</button>
-        <button onClick={() => setReaction("❤️")}>❤️</button>
-        <button onClick={() => setReaction("😂")}>😂</button>
+        <button onClick={() => setReaction("👍")} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded" >👍</button>
+        <button onClick={() => setReaction("❤️")} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">❤️</button>
+        <button onClick={() => setReaction("😂")} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">😂</button>
        
-        <button onClick={handleReactionSubmit}>React</button>
+        {/* <button onClick={handleReactionSubmit}  className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">React</button> */}
       </div>
     </div>
   );

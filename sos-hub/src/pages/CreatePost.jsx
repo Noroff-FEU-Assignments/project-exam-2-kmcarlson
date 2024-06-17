@@ -97,7 +97,7 @@ const CreatePost = () => {
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
         </div>
-        <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <button type="submit" className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">
           Opprett post
         </button>
       </form>

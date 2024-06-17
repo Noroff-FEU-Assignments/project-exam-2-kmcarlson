@@ -226,9 +226,9 @@ const Profile = () => {
             ))}
           </ul>
           {isFollowing ? (
-            <button onClick={handleUnfollow}>Unfollow</button>
+            <button onClick={handleUnfollow} className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Unfollow</button>
           ) : (
-            <button onClick={handleFollow}>Follow</button>
+            <button onClick={handleFollow} className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Follow</button>
           )}
         </div>
       )}
