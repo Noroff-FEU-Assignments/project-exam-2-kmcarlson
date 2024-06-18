@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import { useAuth } from "./AuthContext";
+import logo from "../assets/logo.jpg";
 
 const Header = () => {
   const { accessToken } = useAuth();
@@ -22,11 +23,14 @@ const Header = () => {
         <div className="flex items-center">
           <Link
             to="/"
-            className={`mr-4 hover:text-pink-200 ${
-              location.pathname === "/" ? "active" : ""
-            }`}
+            className={`mr-4 hover:text-pink-200 ${location.pathname === "/" ? "active" : ""
+              }`}
           >
-            <h3 className="uppercase">sos hub</h3>
+            <img
+              src={logo}
+              alt="Logo"
+              className="w-12 h-12"
+            />
           </Link>
           <Nav />
         </div>
@@ -38,9 +42,8 @@ const Header = () => {
           ) : (
             <Link
               to="/login"
-              className={`hover:text-pink-200 ${
-                location.pathname === "/login" ? "active" : ""
-              }`}
+              className={`hover:text-pink-200 ${location.pathname === "/login" ? "active" : ""
+                }`}
             >
               Logg inn
             </Link>
@@ -48,18 +51,16 @@ const Header = () => {
           {accessToken ? (
             <Link
               to="/account"
-              className={`hover:text-pink-200 ${
-                location.pathname === "/account" ? "active" : ""
-              }`}
+              className={`hover:text-pink-200 ${location.pathname === "/account" ? "active" : ""
+                }`}
             >
               Min Profil
             </Link>
           ) : (
             <Link
               to="/register"
-              className={`hover:text-pink-200 ${
-                location.pathname === "/register" ? "active" : ""
-              }`}
+              className={`hover:text-pink-200 ${location.pathname === "/register" ? "active" : ""
+                }`}
             >
               Registrer deg
             </Link>
