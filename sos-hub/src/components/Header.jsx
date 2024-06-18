@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Nav from "./Nav";
 import { useAuth } from "./AuthContext";
-import logo from "../assets/logo.jpg";
+import logo from "../assets/logo_blue.png";
 
 const Header = () => {
   const { accessToken } = useAuth();
@@ -29,7 +29,7 @@ const Header = () => {
             <img
               src={logo}
               alt="Logo"
-              className="w-12 h-12"
+              className="w-14 h-12"
             />
           </Link>
           <Nav />

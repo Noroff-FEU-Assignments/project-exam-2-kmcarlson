@@ -56,13 +56,18 @@ const Post = () => {
     }
   };
 
-  const handleReactionSubmit = async () => {
-    if (!reaction) {
+  const handleReactionChangeAndSubmit = (newReaction) => {
+    setReaction(newReaction);
+    handleReactionSubmit(newReaction);
+  };
+
+  const handleReactionSubmit = async (newReaction) => {
+    if (!newReaction) {
       console.error("Reaction is required");
       return;
     }
     try {
-      const response = await fetch(`${BASE_URL}/posts/${id}/react/${encodeURIComponent(reaction)}`, {
+      const response = await fetch(`${BASE_URL}/posts/${id}/react/${encodeURIComponent(newReaction)}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -72,7 +77,7 @@ const Post = () => {
       if (response.ok) {
         fetchPost();
         setReaction("");
-        console.log("Reaction added successfully");
+        console.log("Reaction add");
       } else {
         console.error("Error adding reaction:", response.statusText);
       }
@@ -108,9 +113,9 @@ const Post = () => {
       </form>
 
       <div>
-        <button onClick={() => { setReaction("👍"); handleReactionSubmit(); }} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">👍</button>
-        <button onClick={() => { setReaction("❤️"); handleReactionSubmit(); }} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">❤️</button>
-        <button onClick={() => { setReaction("😂"); handleReactionSubmit(); }} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">😂</button>
+        <button onClick={() => handleReactionChangeAndSubmit("👍")} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">👍</button>
+        <button onClick={() => handleReactionChangeAndSubmit("❤️")} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">❤️</button>
+        <button onClick={() => handleReactionChangeAndSubmit("😂")} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">😂</button>
       </div>
     </div>
   );
