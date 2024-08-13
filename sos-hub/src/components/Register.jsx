@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { BASE_URL } from "../constants/ApiUrl";
 import { useNavigate } from "react-router-dom";
 

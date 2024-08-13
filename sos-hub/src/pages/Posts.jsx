@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../constants/ApiUrl";
 import { useAuth } from "../components/AuthContext";
@@ -33,7 +33,7 @@ const Posts = () => {
   if (!accessToken) {
     return (
       <div className="text-center mt-8">
-      <p className="text-lg mb-4">You must log in to view posts.</p>
+      <p className="text-lg mb-4">You need to log in to view posts.</p>
       <Link to="/login" className="text-blue-500 hover:underline text-lg font-bold">
         Log in
       </Link>

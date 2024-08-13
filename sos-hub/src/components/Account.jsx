@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BASE_URL } from "../constants/ApiUrl";
 import { useAuth } from "./AuthContext";
 import { Link } from "react-router-dom";

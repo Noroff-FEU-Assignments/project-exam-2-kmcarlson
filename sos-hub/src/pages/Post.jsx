@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { BASE_URL } from "../constants/ApiUrl";
 import { useAuth } from "../components/AuthContext";
@@ -8,7 +8,7 @@ const Post = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [commentText, setCommentText] = useState("");
-  const [reaction, setReaction] = useState("");
+  const [ setReaction] = useState("");
 
   const fetchPost = async () => {
     try {
