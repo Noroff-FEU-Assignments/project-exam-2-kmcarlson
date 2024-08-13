@@ -17,7 +17,7 @@ const Contact = () => {
             {...register("fullName", { required: true, minLength: 3, maxLength: 50 })}
             type="text"
             id="fullName"
-            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg ${errors.fullName ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.fullName ? 'border-red-500' : 'border-gray-300'}`}
           />
           {errors.fullName && (
             <p className="text-red-500 text-sm mt-1">
@@ -33,7 +33,7 @@ const Contact = () => {
             {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })}
             type="email"
             id="email"
-            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
           />
           {errors.email && (
             <p className="text-red-500 text-sm mt-1">Email is required and must be a valid email address</p>
@@ -45,7 +45,7 @@ const Contact = () => {
             {...register("subject", { required: true, minLength: 3, maxLength: 100 })}
             type="text"
             id="subject"
-            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg ${errors.subject ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.subject ? 'border-red-500' : 'border-gray-300'}`}
           />
           {errors.subject && (
             <p className="text-red-500 text-sm mt-1">
@@ -61,7 +61,7 @@ const Contact = () => {
             {...register("body", { required: true, minLength: 3, maxLength: 1000 })}
             id="body"
             rows={6}
-            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg ${errors.body ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.body ? 'border-red-500' : 'border-gray-300'}`}
           />
           {errors.body && (
             <p className="text-red-500 text-sm mt-1">
@@ -74,7 +74,7 @@ const Contact = () => {
         <div>
           <button
             type="submit"
-            className="w-full py-3 px-6 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-blue-500 hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            className="w-full py-3 px-6 border border-transparent rounded-lg shadow-sm text-lg font-medium text-white bg-blue-900 hover:bg-pink-500 focus:outline-none focus:ring-2 focus:ring-blue-900 focus:ring-opacity-50"
           >
             Send
           </button>

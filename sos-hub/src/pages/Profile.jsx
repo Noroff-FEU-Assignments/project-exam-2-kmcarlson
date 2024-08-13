@@ -205,11 +205,11 @@ const Profile = () => {
             </div>
             <div className="md:ml-6 mt-4 md:mt-0 flex-shrink-0">
               {isFollowing ? (
-                <button onClick={handleUnfollow} className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                <button onClick={handleUnfollow} className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">
                   Unfollow
                 </button>
               ) : (
-                <button onClick={handleFollow} className="bg-blue-500 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
+                <button onClick={handleFollow} className="bg-blue-900 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
                   Follow
                 </button>
               )}

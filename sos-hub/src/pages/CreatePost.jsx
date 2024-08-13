@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom"; 
 import { BASE_URL } from "../constants/ApiUrl";
 import { useAuth } from "../components/AuthContext";
@@ -31,23 +31,22 @@ const CreatePost = () => {
       });
   
       if (response.ok) {
-       
         navigate("/posts");
       } else {
-       
-        throw new Error("Noe gikk galt ved opprettelse av post");
+        throw new Error("Something went wrong while creating the post.");
       }
     } catch (error) {
-      console.error("Feil ved opprettelse av post:", error);
+      console.error("Error creating post:", error);
     }
   };
+
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-bold mb-4">Opprett ny post</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-4">
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold mb-12">Create a New Post</h1>
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="mb-6">
           <label htmlFor="title" className="block text-gray-700 font-bold mb-2">
-            Tittel
+            Title
           </label>
           <input
             type="text"
@@ -59,9 +58,9 @@ const CreatePost = () => {
             required
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-6">
           <label htmlFor="body" className="block text-gray-700 font-bold mb-2">
-            Beskrivelse
+            Description
           </label>
           <textarea
             id="body"
@@ -71,7 +70,7 @@ const CreatePost = () => {
             className="border border-gray-300 rounded-md px-3 py-2 w-full h-32"
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-6">
           <label htmlFor="tags" className="block text-gray-700 font-bold mb-2">
             Tags
           </label>
@@ -84,7 +83,7 @@ const CreatePost = () => {
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
         </div>
-        <div className="mb-4">
+        <div className="mb-6">
           <label htmlFor="media" className="block text-gray-700 font-bold mb-2">
             Media URL
           </label>
@@ -97,8 +96,8 @@ const CreatePost = () => {
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
         </div>
-        <button type="submit" className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
-          Opprett post
+        <button type="submit" className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">
+          Create Post
         </button>
       </form>
     </div>

@@ -36,7 +36,7 @@ const Profiles = () => {
     return (
       <div className="text-center mt-8">
       <p className="text-lg mb-4">You need to log in to view profiles.</p>
-      <Link to="/login" className="text-blue-500 hover:underline text-lg font-bold">
+      <Link to="/login" className="text-blue-900 hover:underline text-lg font-bold">
         Log in
       </Link>
       </div>

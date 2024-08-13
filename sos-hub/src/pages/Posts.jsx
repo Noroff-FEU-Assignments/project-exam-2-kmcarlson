@@ -34,7 +34,7 @@ const Posts = () => {
     return (
       <div className="text-center mt-8">
       <p className="text-lg mb-4">You need to log in to view posts.</p>
-      <Link to="/login" className="text-blue-500 hover:underline text-lg font-bold">
+      <Link to="/login" className="text-blue-900 hover:underline text-lg font-bold">
         Log in
       </Link>
       </div>
@@ -46,7 +46,7 @@ const Posts = () => {
       <h1 className="text-4xl font-bold mb-6 text-center">Posts</h1>
       <div className="text-center mb-8">
         <Link to="/create-post">
-          <button className="bg-blue-500 hover:bg-pink-500 text-white font-bold py-2 px-6 rounded">
+          <button className="bg-blue-900 hover:bg-pink-500 text-white font-bold py-2 px-6 rounded">
             Create new post
           </button>
         </Link>
@@ -56,14 +56,14 @@ const Posts = () => {
           <li key={post.id} className="bg-white shadow-lg rounded-lg p-6">
             <Link
               to={`/posts/${post.id}`}
-              className="text-2xl font-semibold text-pink-500 hover:text-blue-500 block mb-4"
+              className="text-2xl font-semibold text-pink-500 hover:text-blue-900 block mb-4"
             >
               {post.title}
             </Link>
             <p className="text-gray-700 text-base mb-4">
               {post.body.length > 150 ? `${post.body.substring(0, 150)}...` : post.body}
             </p>
-            <Link to={`/posts/${post.id}`} className="text-blue-500 hover:underline font-medium">
+            <Link to={`/posts/${post.id}`} className="text-blue-900 hover:underline font-medium">
               Read more
             </Link>
           </li>

@@ -121,7 +121,7 @@ const Post = () => {
           />
           <button
             type="submit"
-            className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded mt-2 w-full"
+            className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded mt-2 w-full"
           >
             Comment
           </button>
@@ -130,19 +130,19 @@ const Post = () => {
         <div className="flex justify-center space-x-4">
           <button
             onClick={() => handleReactionChangeAndSubmit("👍")}
-            className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
           >
             👍
           </button>
           <button
             onClick={() => handleReactionChangeAndSubmit("❤️")}
-            className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
           >
             ❤️
           </button>
           <button
             onClick={() => handleReactionChangeAndSubmit("😂")}
-            className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+            className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded"
           >
             😂
           </button>
