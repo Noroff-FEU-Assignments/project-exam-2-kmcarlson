@@ -44,35 +44,37 @@ const Profiles = () => {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="text-center">Loading...</div>;
   }
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold mb-4">Profiles</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div className="container mx-auto p-4">
+      <h2 className="text-3xl font-bold mb-6 text-center">Profiles</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {profiles.map((profile) => (
-          <Link key={profile.name} to={`/profile/${profile.name}`}>
-            <div className="bg-white rounded-lg shadow-md p-4 flex flex-col">
-              <p className="text-lg font-semibold mb-2 text-cyan-700">
-                Name: {profile.name}
-              </p>
-              <p className="text-gray-600">Email: {profile.email}</p>
-              {profile.avatar && (
+          <Link key={profile.name} to={`/profile/${profile.name}`} className="group">
+            <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center space-y-4 hover:shadow-xl transition-shadow duration-300" style={{ minHeight: '350px', maxWidth: '350px' }}>
+              <div className="flex flex-col items-center w-full mb-4">
+                <p className="text-xl font-semibold text-cyan-700">{profile.name}</p>
+                <p className="text-gray-600">{profile.email}</p>
+              </div>
+              {profile.banner ? (
                 <img
-                  key={`avatar-${profile.id}`}
-                  src={profile.avatar}
-                  alt="Avatar"
-                  className="w-full h-auto object-cover max-h-40 mt-2"
-                />
-              )}
-              {profile.banner && (
-                <img
-                  key={`banner-${profile.id}`}
                   src={profile.banner}
                   alt="Banner"
-                  className="w-full h-auto object-cover max-h-40 mt-2"
+                  className="w-full h-36 object-cover rounded-t-lg mb-2"
                 />
+              ) : (
+                <p className="text-gray-600 mb-2">No Banner Available</p>
+              )}
+              {profile.avatar ? (
+                <img
+                  src={profile.avatar}
+                  alt="Avatar"
+                  className="w-32 h-32 object-cover rounded-full mb-2"
+                />
+              ) : (
+                <p className="text-gray-600">No Avatar Available</p>
               )}
             </div>
           </Link>
