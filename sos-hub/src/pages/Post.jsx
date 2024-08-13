@@ -77,7 +77,7 @@ const Post = () => {
       if (response.ok) {
         fetchPost();
         setReaction("");
-        console.log("Reaction add");
+        console.log("Reaction added");
       } else {
         console.error("Error adding reaction:", response.statusText);
       }
@@ -87,35 +87,66 @@ const Post = () => {
   };
 
   if (!post) {
-    return <div>Loading...</div>;
+    return <div className="text-center py-4">Loading...</div>;
   }
 
   return (
-    <div>
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
-      {post.media && <img src={post.media} alt="Post media" />}
-      {post._count.comments > 0 && (
-        <p>Comments: {post._count.comments}</p>
-      )}
-      {post._count.reactions > 0 && (
-        <p>Reactions: {post._count.reactions}</p>
-      )}
+    <div className="container mx-auto py-8 px-4">
+      <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
+        <h1 className="text-3xl font-bold mb-4 text-center">{post.title}</h1>
+        <p className="text-gray-800 mb-4">{post.body}</p>
+        {post.media && (
+          <img
+            src={post.media}
+            alt="Post media"
+            className="w-full h-auto object-cover rounded-lg mb-4"
+          />
+        )}
+        <div className="flex justify-between mb-4 text-gray-600">
+          {post._count.comments > 0 && (
+            <p>Comments: {post._count.comments}</p>
+          )}
+          {post._count.reactions > 0 && (
+            <p>Reactions: {post._count.reactions}</p>
+          )}
+        </div>
 
-      <form onSubmit={handleCommentSubmit}>
-        <input
-          type="text"
-          value={commentText}
-          onChange={(e) => setCommentText(e.target.value)}
-          placeholder="Add a comment..."
-        />
-        <button type="submit" className="bg-pink-500 hover:bg-blue-900 py-2 px-4 text-white font-bold rounded">Comment</button>
-      </form>
+        <form onSubmit={handleCommentSubmit} className="mb-6">
+          <input
+            type="text"
+            value={commentText}
+            onChange={(e) => setCommentText(e.target.value)}
+            placeholder="Add a comment..."
+            className="bg-gray-100 border border-gray-300 rounded-lg py-2 px-4 w-full"
+          />
+          <button
+            type="submit"
+            className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded mt-2 w-full"
+          >
+            Comment
+          </button>
+        </form>
 
-      <div>
-        <button onClick={() => handleReactionChangeAndSubmit("👍")} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">👍</button>
-        <button onClick={() => handleReactionChangeAndSubmit("❤️")} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">❤️</button>
-        <button onClick={() => handleReactionChangeAndSubmit("😂")} className="bg-pink-500 hover:bg-blue-900 py-2 px-4 rounded">😂</button>
+        <div className="flex justify-center space-x-4">
+          <button
+            onClick={() => handleReactionChangeAndSubmit("👍")}
+            className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+          >
+            👍
+          </button>
+          <button
+            onClick={() => handleReactionChangeAndSubmit("❤️")}
+            className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+          >
+            ❤️
+          </button>
+          <button
+            onClick={() => handleReactionChangeAndSubmit("😂")}
+            className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded"
+          >
+            😂
+          </button>
+        </div>
       </div>
     </div>
   );

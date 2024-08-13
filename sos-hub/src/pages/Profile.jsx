@@ -24,30 +24,19 @@ const Profile = () => {
         if (response.ok) {
           const data = await response.json();
           setProfileData(data);
-          console.log("data", data);
-
-          if (data.followers.find((follower) => follower.name === userData.name)) {
-            setIsFollowing(true);
-          } else {
-            setIsFollowing(false);
-          }
-
+          setIsFollowing(data.followers.some(follower => follower.name === userData.name));
         } else {
-          console.error("Feil ved henting av profil:", response.statusText);
+          console.error("Error fetching profile:", response.statusText);
         }
       } catch (error) {
-        console.error("Feil ved henting av profil:", error);
+        console.error("Error fetching profile:", error);
       } finally {
         setLoading(false);
-
-
       }
-
-
     };
 
     fetchProfile();
-  }, [name, accessToken]);
+  }, [name, accessToken, userData]);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -62,10 +51,10 @@ const Profile = () => {
           const data = await response.json();
           setPosts(data);
         } else {
-          console.error("Feil ved henting av poster:", response.statusText);
+          console.error("Error fetching posts:", response.statusText);
         }
       } catch (error) {
-        console.error("Feil ved henting av poster:", error);
+        console.error("Error fetching posts:", error);
       }
     };
 
@@ -85,8 +74,6 @@ const Profile = () => {
 
       if (response.ok) {
         setIsFollowing(true);
-        console.log("Followed successfully");
-
         const updatedProfileResponse = await fetch(`${BASE_URL}/profiles/${name}?_followers=true&_following=true`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -96,7 +83,7 @@ const Profile = () => {
           const updatedProfileData = await updatedProfileResponse.json();
           setProfileData(updatedProfileData);
         } else {
-          console.error("Feil ved henting av oppdatert profil:", updatedProfileResponse.statusText);
+          console.error("Error fetching updated profile:", updatedProfileResponse.statusText);
         }
       } else {
         const responseData = await response.json();
@@ -122,8 +109,6 @@ const Profile = () => {
 
       if (response.ok) {
         setIsFollowing(false);
-        console.log("Unfollowed successfully");
-
         const updatedProfileResponse = await fetch(`${BASE_URL}/profiles/${name}?_followers=true&_following=true`, {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -133,7 +118,7 @@ const Profile = () => {
           const updatedProfileData = await updatedProfileResponse.json();
           setProfileData(updatedProfileData);
         } else {
-          console.error("Feil ved henting av oppdatert profil:", updatedProfileResponse.statusText);
+          console.error("Error fetching updated profile:", updatedProfileResponse.statusText);
         }
       } else {
         console.error("Error unfollowing profile:", response.statusText);
@@ -144,92 +129,102 @@ const Profile = () => {
   };
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="text-center py-4">Loading...</div>;
   }
 
   return (
-    <div>
+    <div className="container mx-auto p-6">
       {alreadyFollowingError && (
-        <p>You are already following this profile</p>
+        <div className="bg-red-100 text-red-800 p-4 rounded mb-6">
+          You are already following this profile.
+        </div>
       )}
       {profileData && (
-        <div className="container mx-auto py-8">
-          <h3 className="text-2xl font-bold mb-4">Min profil</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold">Profil:</h2>
-              <p className="text-gray-800">{profileData.name}</p>
-            </div>
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold">Email:</h2>
-              <p className="text-gray-800">{profileData.email}</p>
-            </div>
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold">Banner:</h2>
-              {profileData.banner ? (
-                <img
-                  src={profileData.banner}
-                  alt="Banner"
-                  className="w-full h-auto object-cover max-h-40"
-                />
-              ) : (
-                <p className="text-gray-800">No banner available</p>
-              )}
-            </div>
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold">Avatar:</h2>
-              {profileData.avatar ? (
-                <img
-                  src={profileData.avatar}
-                  alt="Avatar"
-                  className="w-full h-auto object-cover max-h-40"
-                />
-              ) : (
-                <p className="text-gray-800">No avatar available</p>
-              )}
-            </div>
-            <div className="mb-4">
-              <h2 className="text-lg font-semibold">Number of posts:</h2>
-              <p className="text-gray-800">{profileData._count.posts}</p>
-            </div>
-            <div className="mb-4">
-              <div className="mb-4">
-                <h2 className="text-lg font-semibold">Followers:</h2>
-                <ul>
-                  {profileData.followers.map((follower, index) => (
-                    <li key={index}>
-                      <Link to={`/profile/${follower.name}`}>{follower.name}</Link>
-                    </li>
-                  ))}
-                </ul>
+        <div>
+          <div className="flex flex-col md:flex-row items-start justify-between bg-white shadow-lg rounded-lg p-6 mb-6">
+            <div className="flex-1">
+              <h3 className="text-3xl font-bold mb-4">Profile Overview</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <h4 className="text-lg font-semibold">Name:</h4>
+                  <p className="text-gray-800">{profileData.name}</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold">Email:</h4>
+                  <p className="text-gray-800">{profileData.email}</p>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold">Banner:</h4>
+                  {profileData.banner ? (
+                    <img
+                      src={profileData.banner}
+                      alt="Banner"
+                      className="w-full h-40 object-cover rounded-lg"
+                    />
+                  ) : (
+                    <p className="text-gray-600">No banner available</p>
+                  )}
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold">Avatar:</h4>
+                  {profileData.avatar ? (
+                    <img
+                      src={profileData.avatar}
+                      alt="Avatar"
+                      className="w-32 h-32 object-cover rounded-full"
+                    />
+                  ) : (
+                    <p className="text-gray-600">No avatar available</p>
+                  )}
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold">Followers:</h4>
+                  <ul className="list-disc pl-5">
+                    {profileData.followers.map((follower, index) => (
+                      <li key={index}>
+                        <Link to={`/profile/${follower.name}`} className="text-cyan-700 hover:underline">{follower.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold">Following:</h4>
+                  <ul className="list-disc pl-5">
+                    {profileData.following.map((following, index) => (
+                      <li key={index}>
+                        <Link to={`/profile/${following.name}`} className="text-cyan-700 hover:underline">{following.name}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold">Number of Posts:</h4>
+                  <p className="text-gray-800">{profileData._count.posts}</p>
+                </div>
               </div>
-              <div className="mb-4">
-                <h2 className="text-lg font-semibold">Following:</h2>
-                <ul>
-                  {profileData.following.map((following, index) => (
-                    <li key={index}>
-                      <Link to={`/profile/${following.name}`}>{following.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-
+            </div>
+            <div className="md:ml-6 mt-4 md:mt-0 flex-shrink-0">
+              {isFollowing ? (
+                <button onClick={handleUnfollow} className="bg-pink-500 hover:bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                  Unfollow
+                </button>
+              ) : (
+                <button onClick={handleFollow} className="bg-blue-500 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded">
+                  Follow
+                </button>
+              )}
             </div>
           </div>
-          <h3 className="text-2xl font-bold mb-4">Posts by {profileData.name}</h3>
-          <ul>
-            {posts.map((post) => (
-              <li key={post.id}>
-                <Link to={`/posts/${post.id}`}>{post.title}</Link>
-              </li>
-            ))}
-          </ul>
-          {isFollowing ? (
-            <button onClick={handleUnfollow} className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Unfollow</button>
-          ) : (
-            <button onClick={handleFollow} className="bg-pink-500 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">Follow</button>
-          )}
+          <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
+            <h3 className="text-2xl font-bold mb-4">Posts by {profileData.name}</h3>
+            <ul className="list-disc pl-5">
+              {posts.map((post) => (
+                <li key={post.id}>
+                  <Link to={`/posts/${post.id}`} className="text-cyan-700 hover:underline">{post.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>

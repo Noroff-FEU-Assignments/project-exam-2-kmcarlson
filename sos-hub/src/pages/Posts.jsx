@@ -32,9 +32,9 @@ const Posts = () => {
 
   if (!accessToken) {
     return (
-      <div className="text-center">
-        <p>Du må logge inn for å se poster.</p>
-        <Link to="/login" className="text-blue-900 hover:underline">
+      <div className="text-center mt-8">
+        <p className="text-lg mb-4">Du må logge inn for å se poster.</p>
+        <Link to="/login" className="text-blue-500 hover:underline text-lg font-bold">
           Logg inn
         </Link>
       </div>
@@ -42,24 +42,35 @@ const Posts = () => {
   }
 
   return (
-    <div className="container mx-auto px-4">
-      <h1 className="text-4xl font-bold mb-4">Poster</h1>
-      <div className="mb-4">
-        <Link to="/create-post" className="text-blue-900 hover:underline">
-          Opprett ny post
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-4xl font-bold mb-6 text-center">Poster</h1>
+      <div className="text-center mb-8">
+        <Link to="/create-post">
+          <button className="bg-blue-500 hover:bg-pink-500 text-white font-bold py-2 px-6 rounded">
+            Opprett ny post
+          </button>
         </Link>
       </div>
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+
+
         {posts.map((post) => (
-          <li key={post.id} className="bg-white shadow-md rounded-md p-4">
+
+          <li key={post.id} className="bg-white shadow-lg rounded-lg p-6">
             <Link
               to={`/posts/${post.id}`}
-              className="text-lg font-semibold text-pink-500 hover:text-pink-700"
+              className="text-2xl font-semibold text-pink-500 hover:text-blue-500 block mb-4"
             >
               {post.title}
-            </Link>
 
-            <p className="text-gray-600">{post.body}</p>
+            </Link>
+            <p className="text-gray-700 text-base mb-4">
+              {post.body.length > 150 ? `${post.body.substring(0, 150)}...` : post.body}
+            </p>
+            <Link to={`/posts/${post.id}`} className="text-blue-500 hover:underline font-medium">
+              Redd more
+            </Link>
           </li>
         ))}
       </ul>
