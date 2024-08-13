@@ -35,10 +35,10 @@ const Profiles = () => {
   if (!accessToken) {
     return (
       <div className="text-center">
-        <p>Du må logge inn for å se profiler.</p>
-        <Link to="/login" className="text-blue-900 hover:underline">
-          Logg inn
-        </Link>
+      <p>You need to log in to view profiles.</p>
+      <Link to="/login" className="text-blue-900 hover:underline">
+        Log in
+      </Link>
       </div>
     );
   }

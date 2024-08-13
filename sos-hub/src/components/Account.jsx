@@ -111,7 +111,7 @@ const Account = () => {
   const updateMedia = async () => {
     try {
       setIsUpdating(true);
-      const response = await fetch(`${BASE_URL}/profiles/${userData.name}`, {
+      const response = await fetch(`${BASE_URL}/profiles/${userData.name}/media`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${accessToken}`,
@@ -186,12 +186,8 @@ const Account = () => {
               )}
             </div>
             <div className="mb-4">
-              <h4 className="text-lg font-semibold">Number of Posts:</h4>
-              <p className="text-gray-800">{profileData._count.posts}</p>
-            </div>
-            <div className="mb-4">
-              <h4 className="text-lg font-semibold">Number of Followers:</h4>
-              <p className="text-gray-800">{profileData._count.followers}</p>
+              <h4 className="text-lg font-semibold">Followers:</h4>
+              {/* <p className="text-gray-800">{profileData._count.followers}</p> */}
               <ul className="list-disc pl-5 mt-2">
                 {profileData.followers.map((follower, index) => (
                   <li key={index}>
@@ -201,8 +197,8 @@ const Account = () => {
               </ul>
             </div>
             <div className="mb-4">
-              <h4 className="text-lg font-semibold">Number Following:</h4>
-              <p className="text-gray-800">{profileData._count.following}</p>
+              <h4 className="text-lg font-semibold">Following:</h4>
+              {/* <p className="text-gray-800">{profileData._count.following}</p> */}
               <ul className="list-disc pl-5 mt-2">
                 {profileData.following.map((following, index) => (
                   <li key={index}>
@@ -210,6 +206,10 @@ const Account = () => {
                   </li>
                 ))}
               </ul>
+            </div>
+            <div className="mb-4">
+              <h4 className="text-lg font-semibold">Number of Posts:</h4>
+              <p className="text-gray-800">{profileData._count.posts}</p>
             </div>
           </div>
         </div>

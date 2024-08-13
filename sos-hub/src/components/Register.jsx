@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BASE_URL } from "../constants/ApiUrl";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -9,12 +10,13 @@ const Register = () => {
   const [banner, setBanner] = useState("");
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Valider e-postadressen
     if (!email.endsWith("stud.noroff.no")) {
-      setError("only email 'stud.noroff.no'.");
+      setError("Only emails with the domain 'stud.noroff.no' are allowed.");
       return;
     }
 
@@ -34,89 +36,95 @@ const Register = () => {
       });
 
       if (response.ok) {
-        console.log("Registrering ok!");
+        console.log("Registration successful!");
+        navigate("/login");
       } else {
-        console.error("Registrering no good!.");
+        const errorData = await response.json();
+        const errorMessage =
+          errorData.errors && errorData.errors.length > 0
+            ? errorData.errors[0].message
+            : "Registration failed. Please try again.";
+        setError(errorMessage);
       }
     } catch (error) {
-      console.error("Feil ved håndtering av registrering:", error);
+      console.error("Error handling registration:", error);
+      setError("An error occurred. Please try again later.");
     }
   };
 
   return (
-    <div className="container mx-auto max-w-md px-4 py-8">
-      <pre>
-        {" "}
-        br: dangfart1000 email: dangfart1000@stud.noroff.no pw:test1234
+    <div className="container mx-auto max-w-md px-6 py-12 bg-white shadow-md rounded-lg mt-10 mb-10">
+      <pre className="text-sm text-gray-600 mb-6">
+        Example credentials - username: dangfart1000, email: dangfart1000@stud.noroff.no, password: test1234
       </pre>
-      <h2 className="text-2xl font-bold mb-4">Registrer deg</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Register</h2>
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
-          <label htmlFor="username" className="block font-bold">
-            Brukernavn:
+          <label htmlFor="username" className="block font-bold mb-2 text-gray-700">
+            Username:
           </label>
           <input
             type="text"
             id="username"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-pink-300"
           />
         </div>
         <div>
-          <label htmlFor="email" className="block font-bold">
-            E-postadresse:
+          <label htmlFor="email" className="block font-bold mb-2 text-gray-700">
+            Email Address:
           </label>
           <input
             type="email"
             id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-pink-300"
           />
         </div>
         <div>
-          <label htmlFor="password" className="block font-bold">
-            Passord:
+          <label htmlFor="password" className="block font-bold mb-2 text-gray-700">
+            Password:
           </label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-pink-300"
           />
         </div>
         <div>
-          <label htmlFor="avatar" className="block font-bold">
-            Avatar URL (valgfritt):
+          <label htmlFor="avatar" className="block font-bold mb-2 text-gray-700">
+            Avatar URL (optional):
           </label>
           <input
             type="text"
             id="avatar"
             value={avatar}
             onChange={(event) => setAvatar(event.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-pink-300"
           />
         </div>
         <div>
-          <label htmlFor="banner" className="block font-bold">
-            Banner URL (valgfritt):
+          <label htmlFor="banner" className="block font-bold mb-2 text-gray-700">
+            Banner URL (optional):
           </label>
           <input
             type="text"
             id="banner"
             value={banner}
             onChange={(event) => setBanner(event.target.value)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2"
+            className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring focus:ring-pink-300"
           />
         </div>
-        {error && <p className="text-red-500">{error}</p>}
+        {error && <p className="text-red-500 font-semibold">{error}</p>}
         <button
           type="submit"
-          className="bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-blue-500"
+          className="w-full bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-pink-600 transition duration-300"
         >
-          Registrer
+          Register
         </button>
       </form>
     </div>

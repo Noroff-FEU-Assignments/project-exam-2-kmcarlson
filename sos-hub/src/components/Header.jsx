@@ -37,7 +37,7 @@ const Header = () => {
         <div className="flex space-x-4">
           {accessToken ? (
             <Link to="/" className="hover:text-pink-200" onClick={handleLogout}>
-              Logg ut
+              Logout
             </Link>
           ) : (
             <Link
@@ -45,7 +45,7 @@ const Header = () => {
               className={`hover:text-pink-200 ${location.pathname === "/login" ? "active" : ""
                 }`}
             >
-              Logg inn
+              Login
             </Link>
           )}
           {accessToken ? (
@@ -54,7 +54,7 @@ const Header = () => {
               className={`hover:text-pink-200 ${location.pathname === "/account" ? "active" : ""
                 }`}
             >
-              Min Profil
+              My Profile
             </Link>
           ) : (
             <Link
@@ -62,7 +62,7 @@ const Header = () => {
               className={`hover:text-pink-200 ${location.pathname === "/register" ? "active" : ""
                 }`}
             >
-              Registrer deg
+              Register
             </Link>
           )}
         </div>
