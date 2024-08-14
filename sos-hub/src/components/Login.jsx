@@ -34,54 +34,52 @@ const Login = () => {
         navigate(`/account`);
       } else {
         const errorMessage = await response.text();
-        console.error("Innlogging mislyktes:", errorMessage);
-        setError("Feil brukernavn eller passord.");
+        console.error("Login failed:", errorMessage);
+        setError("Incorrect username or password.");
       }
     } catch (error) {
-      console.error("Feil:", error);
-      setError("Noe gikk galt. Vennligst prøv igjen.");
+      console.error("Error:", error);
+      setError("Something went wrong. Please try again.");
     }
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-      <div className="max-w-md w-full p-8 rounded-lg shadow-lg">
-        <pre>
-          {" "}
-          br: dangfart1000 email: dangfart1000@stud.noroff.no pw:test1234
-        </pre>
-        <h2 className="text-2xl font-bold mb-4">Logg inn</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="flex justify-center items-center min-h-screen bg-gray-50">
+      <div className="max-w-md w-full p-8 rounded-lg  bg-white">
+        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="email" className="block font-bold">
-              E-postadresse:
+            <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+              Email Address:
             </label>
             <input
               type="email"
               id="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              className="w-full border border-gray-300 rounded-md px-3 py-2"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+              placeholder="Enter your email"
             />
           </div>
           <div>
-            <label htmlFor="password" className="block font-bold">
-              Passord:
+            <label htmlFor="password" className="block text-gray-700 font-semibold mb-2">
+              Password:
             </label>
             <input
               type="password"
               id="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
-              className="w-full border border-gray-300 rounded-md px-3 py-2"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 focus:ring-2 focus:ring-pink-500 focus:border-pink-500"
+              placeholder="Enter your password"
             />
           </div>
-          {error && <p className="text-red-500">{error}</p>}
+          {error && <p className="text-red-500 text-center">{error}</p>}
           <button
             type="submit"
-            className="bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-blue-900"
+            className="w-full bg-pink-500 text-white py-2 px-4 rounded-md hover:bg-blue-900 transition-colors"
           >
-            Logg inn
+            Login
           </button>
         </form>
       </div>

@@ -53,7 +53,7 @@ const Register = () => {
   };
 
   return (
-    <div className="container mx-auto max-w-md px-6 py-12 bg-white shadow-md rounded-lg mt-10 mb-10">
+    <div className="container mx-auto max-w-md px-6 py-12 bg-white rounded-lg mt-10 mb-10 " >
       <pre className="text-sm text-gray-600 mb-6">
         Example credentials - username: dangfart1000, email: dangfart1000@stud.noroff.no, password: test1234
       </pre>

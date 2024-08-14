@@ -53,7 +53,7 @@ const Profiles = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {profiles.map((profile) => (
           <Link key={profile.name} to={`/profile/${profile.name}`} className="group">
-            <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center space-y-4 hover:shadow-xl transition-shadow duration-300" style={{ minHeight: '350px', maxWidth: '350px' }}>
+            <div className="bg-white rounded-lg p-6 flex flex-col items-center space-y-4 hover:shadow-xl transition-shadow duration-300" style={{ minHeight: '350px', maxWidth: '350px' }}>
               <div className="flex flex-col items-center w-full mb-4">
                 <p className="text-xl font-semibold text-cyan-700">{profile.name}</p>
                 <p className="text-gray-600">{profile.email}</p>
