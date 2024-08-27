@@ -1,42 +1,37 @@
 # project-exam-2
 
-A simple overview of the use/purpose of the project.
-
 ## Description
 
-An existing Social Media company has approached you to create a brand new front end for their application. While they have a list of required features, the design and user experience has not been specified. Working with the official API documentation, plan, design and build a modern front end social media application.
+This project aims to create a brand new front end for an existing Social Media company. The design and user experience have not been specified, so it is up to us to plan, design, and build a modern front end social media application. We will be working with the official API documentation to ensure seamless integration.
 
 ## Built With
 
- - React 
- - Tailwind
+- React
+- Tailwind
 
 ## Getting Started
 
-
-
 ### Installing
 
-1. Clone the repo:
+1. Clone the repository:
 
 ```bash
 gh repo clone https://github.com/Noroff-FEU-Assignments/project-exam-2-kmcarlson.git
 ```
-
-
-### Running
-
-Open the 
 ```bash
-index.HTML
+cd sos-hub
 ```
+
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
+
 
 ## Link
 
-```bash
-https://roaring-dieffenbachia-ed14a9.netlify.app/
-```
-
-
-
+You can access the deployed application at [https://roaring-dieffenbachia-ed14a9.netlify.app/](https://roaring-dieffenbachia-ed14a9.netlify.app/)
 
