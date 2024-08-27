@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const UpdatePostModal = ({ postId, existingPost, handleUpdate }) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -11,16 +11,29 @@ const UpdatePostModal = ({ postId, existingPost, handleUpdate }) => {
 
   useEffect(() => {
     if (existingPost) {
-      setUpdatedPost(existingPost);
+      setUpdatedPost({
+        title: existingPost.title || "",
+        body: existingPost.body || "",
+        tags: Array.isArray(existingPost.tags) ? existingPost.tags : [], 
+        media: existingPost.media || ""
+      });
     }
   }, [existingPost]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUpdatedPost((prevState) => ({
-     ...prevState,
-      [name]: value
-    }));
+
+    if (name === "tags") {
+      setUpdatedPost((prevState) => ({
+        ...prevState,
+        [name]: value.split(",").map(tag => tag.trim()) 
+      }));
+    } else {
+      setUpdatedPost((prevState) => ({
+        ...prevState,
+        [name]: value
+      }));
+    }
   };
 
   const handleSubmit = () => {
@@ -33,7 +46,7 @@ const UpdatePostModal = ({ postId, existingPost, handleUpdate }) => {
   };
 
   return (
-    <div className={`fixed z-10 inset-0 overflow-y-auto ${isModalOpen? "" : "hidden"}`}>
+    <div className={`fixed z-10 inset-0 overflow-y-auto ${isModalOpen ? "" : "hidden"}`}>
       <div className="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
         <div className="fixed inset-0 transition-opacity" aria-hidden="true">
           <div className="absolute inset-0 bg-gray-500 opacity-75"></div>

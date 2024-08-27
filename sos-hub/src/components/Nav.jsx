@@ -9,8 +9,12 @@ const Nav = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <nav className="flex flex-col md:flex-row space-x-4 md:space-x-8">
+    <nav className="relative">
       <div className="md:hidden">
         <button
           onClick={toggleMenu}
@@ -33,12 +37,20 @@ const Nav = () => {
         </button>
       </div>
       <div
-        className={`md:flex md:items-center ${
-          isOpen ? "block" : "hidden"
-        } space-y-2 md:space-y-0 md:space-x-8`}
+        className={`fixed inset-0 bg-black bg-opacity-75 z-20 transition-opacity duration-300 ease-in-out ${
+          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        }`}
+        onClick={closeMenu}
+      ></div>
+
+      <div
+        className={`fixed inset-0 z-30 flex flex-col justify-center items-center space-y-6 text-white text-l transition-transform duration-300 ease-in-out transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } md:relative md:flex md:flex-row md:space-x-8 md:translate-x-0 md:bg-transparent md:space-y-0`}
       >
         <Link
           to="/about"
+          onClick={closeMenu}
           className={`block md:inline-block hover:text-pink-200 ${
             location.pathname === "/about" ? "active" : ""
           }`}
@@ -47,6 +59,7 @@ const Nav = () => {
         </Link>
         <Link
           to="/contact"
+          onClick={closeMenu}
           className={`block md:inline-block hover:text-pink-200 ${
             location.pathname === "/contact" ? "active" : ""
           }`}
@@ -55,6 +68,7 @@ const Nav = () => {
         </Link>
         <Link
           to="/profiles"
+          onClick={closeMenu}
           className={`block md:inline-block hover:text-pink-200 ${
             location.pathname === "/profiles" ? "active" : ""
           }`}
@@ -63,11 +77,12 @@ const Nav = () => {
         </Link>
         <Link
           to="/posts"
+          onClick={closeMenu}
           className={`block md:inline-block hover:text-pink-200 ${
             location.pathname === "/posts" ? "active" : ""
           }`}
         >
-          posts
+          Posts
         </Link>
       </div>
     </nav>

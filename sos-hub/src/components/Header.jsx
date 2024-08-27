@@ -33,7 +33,7 @@ const Header = () => {
           </Link>
           <Nav />
         </div>
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 text-white text-l">
           {accessToken ? (
             <Link to="/" className="hover:text-pink-200" onClick={handleLogout}>
               Logout

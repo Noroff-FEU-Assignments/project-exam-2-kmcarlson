@@ -15,7 +15,19 @@ const CreatePost = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPost({ ...post, [name]: value });
+
+    if (name === "tags") {
+      
+      setPost((prevPost) => ({
+        ...prevPost,
+        [name]: value.split(",").map(tag => tag.trim()) 
+      }));
+    } else {
+      setPost((prevPost) => ({
+        ...prevPost,
+        [name]: value
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -29,7 +41,7 @@ const CreatePost = () => {
         },
         body: JSON.stringify(post),
       });
-  
+
       if (response.ok) {
         navigate("/posts");
       } else {
@@ -72,13 +84,13 @@ const CreatePost = () => {
         </div>
         <div className="mb-6">
           <label htmlFor="tags" className="block text-gray-700 font-bold mb-2">
-            Tags
+            Tags (separated by commas)
           </label>
           <input
             type="text"
             id="tags"
             name="tags"
-            value={post.tags}
+            value={post.tags.join(", ")} 
             onChange={handleChange}
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />

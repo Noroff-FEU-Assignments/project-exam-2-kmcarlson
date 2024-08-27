@@ -33,10 +33,10 @@ const Posts = () => {
   if (!accessToken) {
     return (
       <div className="text-center mt-8">
-      <p className="text-lg mb-4">You need to log in to view posts.</p>
-      <Link to="/login" className="text-blue-900 hover:underline text-lg font-bold">
-        Log in
-      </Link>
+        <p className="text-lg mb-4">You need to log in to view posts.</p>
+        <Link to="/login" className="text-blue-900 hover:underline text-lg font-bold">
+          Log in
+        </Link>
       </div>
     );
   }
@@ -51,20 +51,29 @@ const Posts = () => {
           </button>
         </Link>
       </div>
-      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <ul className="flex flex-wrap justify-around gap-6">
         {posts.map((post) => (
-          <li key={post.id} className="bg-white shadow-lg rounded-lg p-6">
+          <li key={post.id} className="bg-white shadow-lg rounded-2xl p-6 flex-1 min-w-[300px] max-w-[30%]">
             <Link
               to={`/posts/${post.id}`}
-              className="text-2xl font-semibold text-pink-500 hover:text-blue-900 block mb-4"
+              className="block w-full h-full"
             >
-              {post.title}
-            </Link>
-            <p className="text-gray-700 text-base mb-4">
-              {post.body.length > 150 ? `${post.body.substring(0, 150)}...` : post.body}
-            </p>
-            <Link to={`/posts/${post.id}`} className="text-blue-900 hover:underline font-medium">
-              Read more
+              {post.media && (
+                <img
+                  src={post.media}
+                  alt={post.title}
+                  className="w-full h-48 object-cover rounded-2xl mb-4"
+                />
+              )}
+              <h2 className="text-2xl font-semibold text-pink-500 hover:text-blue-900 mb-4">
+                {post.title}
+              </h2>
+              <p className="text-gray-700 text-base mb-4">
+                {post.body.length > 150 ? `${post.body.substring(0, 150)}...` : post.body}
+              </p>
+              <p className="text-blue-900 hover:underline font-medium">
+                Read more
+              </p>
             </Link>
           </li>
         ))}
