@@ -143,7 +143,7 @@ const Profile = () => {
         <div>
           <div className="flex flex-col md:flex-row items-start justify-between bg-white shadow-lg rounded-lg p-6 mb-6">
             <div className="flex-1">
-              <h3 className="text-3xl font-bold mb-4">Profile Overview</h3>
+              <h1 className="text-3xl font-bold mb-4 text-pink-500">Profile Overview</h1>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="text-lg font-semibold">Name:</h4>
@@ -182,7 +182,7 @@ const Profile = () => {
                   <ul className="list-disc pl-5">
                     {profileData.followers.map((follower, index) => (
                       <li key={index}>
-                        <Link to={`/profile/${follower.name}`} className="text-cyan-700 hover:underline">{follower.name}</Link>
+                        <Link to={`/profile/${follower.name}`} className="text-pink-500 hover:underline">{follower.name}</Link>
                       </li>
                     ))}
                   </ul>
@@ -192,7 +192,7 @@ const Profile = () => {
                   <ul className="list-disc pl-5">
                     {profileData.following.map((following, index) => (
                       <li key={index}>
-                        <Link to={`/profile/${following.name}`} className="text-cyan-700 hover:underline">{following.name}</Link>
+                        <Link to={`/profile/${following.name}`} className="text-pink-500 hover:underline">{following.name}</Link>
                       </li>
                     ))}
                   </ul>
@@ -216,11 +216,11 @@ const Profile = () => {
             </div>
           </div>
           <div className="bg-white shadow-lg rounded-lg p-6 mb-6">
-            <h3 className="text-2xl font-bold mb-4">Posts by {profileData.name}</h3>
+            <h2 className="text-2xl font-bold text-pink-500 mb-4">Posts by {profileData.name}</h2>
             <ul className="list-disc pl-5">
               {posts.map((post) => (
                 <li key={post.id}>
-                  <Link to={`/posts/${post.id}`} className="text-cyan-700 hover:underline">{post.title}</Link>
+                  <Link to={`/posts/${post.id}`} className="text-pink-500 hover:underline">{post.title}</Link>
                 </li>
               ))}
             </ul>

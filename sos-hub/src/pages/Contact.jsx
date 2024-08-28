@@ -9,7 +9,7 @@ const Contact = () => {
 
   return (
     <div className="container mx-auto p-8 max-w-4xl">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-8">Contact Us</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center text-pink-500">Contact Us</h1>
       <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-lg rounded-lg p-8 space-y-6">
         <div>
           <label htmlFor="fullName" className="block text-lg font-medium text-gray-700 mb-2">Full Name</label>

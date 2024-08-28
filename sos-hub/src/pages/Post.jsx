@@ -93,7 +93,7 @@ const Post = () => {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-2xl mx-auto bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-3xl font-bold mb-4 text-center">{post.title}</h1>
+        <h1 className="text-3xl font-bold mb-4 text-center text-pink-500">{post.title}</h1>
         <p className="text-gray-800 mb-4">{post.body}</p>
         {post.media && (
           <img

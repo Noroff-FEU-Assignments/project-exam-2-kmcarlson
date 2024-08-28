@@ -55,7 +55,7 @@ const Register = () => {
   return (
     <div className="container mx-auto max-w-md px-6 py-12 bg-white rounded-lg mt-10 mb-10 " >
       <pre className="text-sm text-gray-600 mb-6">
-        Example credentials - username: dangfart1000, email: dangfart1000@stud.noroff.no, password: test1234
+        Example credentials - username: dangfart10, email: dangfart10@stud.noroff.no, password: test1234
       </pre>
       <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">Register</h2>
       <form onSubmit={handleSubmit} className="space-y-6">

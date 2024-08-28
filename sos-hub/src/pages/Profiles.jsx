@@ -34,10 +34,12 @@ const Profiles = () => {
 
   if (!accessToken) {
     return (
-      <div className="text-center mt-8">
-      <p className="text-lg mb-4">You need to log in to view profiles.</p>
-      <Link to="/login" className="text-blue-900 hover:underline text-lg font-bold">
-        Log in
+      <div className="text-center m-8">
+      <h2 className="text-lg mb-4">You need to log in to view profiles.</h2>
+      <Link to="/login" >
+      <button className="bg-blue-900 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded p-10">
+            Log in
+          </button>
       </Link>
       </div>
     );
@@ -49,13 +51,13 @@ const Profiles = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h2 className="text-3xl font-bold mb-6 text-center">Profiles</h2>
+      <h2 className="text-3xl font-bold mb-4 text-center text-pink-500">Profiles</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {profiles.map((profile) => (
           <Link key={profile.name} to={`/profile/${profile.name}`} className="group">
             <div className="bg-white rounded-lg p-6 flex flex-col items-center space-y-4 hover:shadow-xl transition-shadow duration-300" style={{ minHeight: '350px', maxWidth: '350px' }}>
               <div className="flex flex-col items-center w-full mb-4">
-                <p className="text-xl font-semibold text-cyan-700">{profile.name}</p>
+                <p className="text-xl font-semibold text-pink-500">{profile.name}</p>
                 <p className="text-gray-600">{profile.email}</p>
               </div>
               {profile.banner ? (

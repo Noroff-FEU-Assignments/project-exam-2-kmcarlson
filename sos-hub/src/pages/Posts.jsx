@@ -32,10 +32,12 @@ const Posts = () => {
 
   if (!accessToken) {
     return (
-      <div className="text-center mt-8">
-        <p className="text-lg mb-4">You need to log in to view posts.</p>
-        <Link to="/login" className="text-blue-900 hover:underline text-lg font-bold">
-          Log in
+      <div className="text-center m-8">
+        <h2 className="text-lg mb-4">You need to log in to view posts.</h2>
+        <Link to="/login">
+          <button className="bg-blue-900 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded p-10">
+            Log in
+          </button>
         </Link>
       </div>
     );
@@ -43,7 +45,7 @@ const Posts = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-6 text-center">Posts</h1>
+      <h1 className="text-3xl font-bold mb-4 text-center text-pink-500">Posts</h1>
       <div className="text-center mb-8">
         <Link to="/create-post">
           <button className="bg-blue-900 hover:bg-pink-500 text-white font-bold py-2 px-6 rounded">
