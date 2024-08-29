@@ -37,50 +37,44 @@ const Nav = () => {
         </button>
       </div>
       <div
-        className={`fixed inset-0 bg-black bg-opacity-75 z-20 transition-opacity duration-300 ease-in-out ${
-          isOpen ? "opacity-100 visible" : "opacity-0 invisible"
-        }`}
+        className={`fixed inset-0 bg-black bg-opacity-75 z-20 transition-opacity duration-300 ease-in-out ${isOpen ? "opacity-100 visible" : "opacity-0 invisible"
+          }`}
         onClick={closeMenu}
       ></div>
 
       <div
-        className={`fixed inset-0 z-30 flex flex-col justify-center items-center space-y-6 text-white text-l transition-transform duration-300 ease-in-out transform ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:relative md:flex md:flex-row md:space-x-8 md:translate-x-0 md:bg-transparent md:space-y-0`}
+        className={`fixed inset-0 z-30 flex flex-col justify-center items-center space-y-6 text-white text-l transition-transform duration-300 ease-in-out transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } md:relative md:flex md:flex-row md:space-x-8 md:translate-x-0 md:bg-transparent md:space-y-0`}
       >
         <Link
           to="/about"
           onClick={closeMenu}
-          className={`block md:inline-block hover:text-pink-200 ${
-            location.pathname === "/about" ? "active" : ""
-          }`}
+          className={`block md:inline-block hover:text-pink-200 ${location.pathname === "/about" ? "active" : ""
+            }`}
         >
           About
         </Link>
         <Link
           to="/contact"
           onClick={closeMenu}
-          className={`block md:inline-block hover:text-pink-200 ${
-            location.pathname === "/contact" ? "active" : ""
-          }`}
+          className={`block md:inline-block hover:text-pink-200 ${location.pathname === "/contact" ? "active" : ""
+            }`}
         >
           Contact
         </Link>
         <Link
           to="/profiles"
           onClick={closeMenu}
-          className={`block md:inline-block hover:text-pink-200 ${
-            location.pathname === "/profiles" ? "active" : ""
-          }`}
+          className={`block md:inline-block hover:text-pink-200 ${location.pathname === "/profiles" ? "active" : ""
+            }`}
         >
           Profiles
         </Link>
         <Link
           to="/posts"
           onClick={closeMenu}
-          className={`block md:inline-block hover:text-pink-200 ${
-            location.pathname === "/posts" ? "active" : ""
-          }`}
+          className={`block md:inline-block hover:text-pink-200 ${location.pathname === "/posts" ? "active" : ""
+            }`}
         >
           Posts
         </Link>

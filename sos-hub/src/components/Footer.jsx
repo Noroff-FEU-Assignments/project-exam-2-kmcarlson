@@ -28,7 +28,7 @@ const Footer = () => {
           <p>
             Phone:{" "}
             <a href="tel:+4769257990" className="hover:underline">
-            69 25 79 90
+              69 25 79 90
             </a>
           </p>
         </div>
@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="flex flex-col items-start md:items-end justify-center">
           <h2 className="text-lg font-semibold mb-2">Follow Us</h2>
           <div className="flex space-x-4">
-          <a
+            <a
               href="#"
             >
               <img src={facebook} alt="Facebook" className="w-6 h-6" />

@@ -21,9 +21,9 @@ const Contact = () => {
           />
           {errors.fullName && (
             <p className="text-red-500 text-sm mt-1">
-              {errors.fullName.type === 'required' ? 'Full Name is required' : 
-               errors.fullName.type === 'minLength' ? 'Full Name must be at least 3 characters' : 
-               'Full Name must be no more than 50 characters'}
+              {errors.fullName.type === 'required' ? 'Full Name is required' :
+                errors.fullName.type === 'minLength' ? 'Full Name must be at least 3 characters' :
+                  'Full Name must be no more than 50 characters'}
             </p>
           )}
         </div>
@@ -49,9 +49,9 @@ const Contact = () => {
           />
           {errors.subject && (
             <p className="text-red-500 text-sm mt-1">
-              {errors.subject.type === 'required' ? 'Subject is required' : 
-               errors.subject.type === 'minLength' ? 'Subject must be at least 3 characters' : 
-               'Subject must be no more than 100 characters'}
+              {errors.subject.type === 'required' ? 'Subject is required' :
+                errors.subject.type === 'minLength' ? 'Subject must be at least 3 characters' :
+                  'Subject must be no more than 100 characters'}
             </p>
           )}
         </div>
@@ -65,9 +65,9 @@ const Contact = () => {
           />
           {errors.body && (
             <p className="text-red-500 text-sm mt-1">
-              {errors.body.type === 'required' ? 'Message is required' : 
-               errors.body.type === 'minLength' ? 'Message must be at least 3 characters' : 
-               'Message must be no more than 1000 characters'}
+              {errors.body.type === 'required' ? 'Message is required' :
+                errors.body.type === 'minLength' ? 'Message must be at least 3 characters' :
+                  'Message must be no more than 1000 characters'}
             </p>
           )}
         </div>

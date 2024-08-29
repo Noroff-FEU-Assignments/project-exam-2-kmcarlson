@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BASE_URL } from "../constants/ApiUrl";
 import { useAuth } from "../components/AuthContext";
@@ -35,12 +35,12 @@ const Profiles = () => {
   if (!accessToken) {
     return (
       <div className="text-center m-8">
-      <h2 className="text-lg mb-4">You need to log in to view profiles.</h2>
-      <Link to="/login" >
-      <button className="bg-blue-900 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded p-10">
+        <h2 className="text-lg mb-4">You need to log in to view profiles.</h2>
+        <Link to="/login" >
+          <button className="bg-blue-900 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded p-10">
             Log in
           </button>
-      </Link>
+        </Link>
       </div>
     );
   }

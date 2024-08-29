@@ -14,7 +14,7 @@ const UpdatePostModal = ({ postId, existingPost, handleUpdate }) => {
       setUpdatedPost({
         title: existingPost.title || "",
         body: existingPost.body || "",
-        tags: Array.isArray(existingPost.tags) ? existingPost.tags : [], 
+        tags: Array.isArray(existingPost.tags) ? existingPost.tags : [],
         media: existingPost.media || ""
       });
     }
@@ -26,7 +26,7 @@ const UpdatePostModal = ({ postId, existingPost, handleUpdate }) => {
     if (name === "tags") {
       setUpdatedPost((prevState) => ({
         ...prevState,
-        [name]: value.split(",").map(tag => tag.trim()) 
+        [name]: value.split(",").map(tag => tag.trim())
       }));
     } else {
       setUpdatedPost((prevState) => ({

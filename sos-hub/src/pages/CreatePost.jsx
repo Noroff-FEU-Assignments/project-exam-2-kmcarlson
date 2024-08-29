@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../constants/ApiUrl";
 import { useAuth } from "../components/AuthContext";
 
@@ -17,10 +17,10 @@ const CreatePost = () => {
     const { name, value } = e.target;
 
     if (name === "tags") {
-      
+
       setPost((prevPost) => ({
         ...prevPost,
-        [name]: value.split(",").map(tag => tag.trim()) 
+        [name]: value.split(",").map(tag => tag.trim())
       }));
     } else {
       setPost((prevPost) => ({
@@ -90,7 +90,7 @@ const CreatePost = () => {
             type="text"
             id="tags"
             name="tags"
-            value={post.tags.join(", ")} 
+            value={post.tags.join(", ")}
             onChange={handleChange}
             className="border border-gray-300 rounded-md px-3 py-2 w-full"
           />
