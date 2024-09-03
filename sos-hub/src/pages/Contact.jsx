@@ -8,16 +8,16 @@ const Contact = () => {
   };
 
   return (
-    <div className="container mx-auto p-8 max-w-4xl">
-      <h1 className="text-3xl font-bold mb-4 text-center text-pink-500">Contact Us</h1>
-      <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-lg rounded-lg p-8 space-y-6">
+    <div className="container mx-auto p-4 min-h-screen flex flex-col justify-center items-center">
+      <h1 className="text-4xl font-bold mb-8 text-center text-pink-500 md:text-5xl">Contact Us</h1>
+      <form onSubmit={handleSubmit(onSubmit)} className="bg-white shadow-lg rounded-lg p-8 space-y-6 w-full max-w-lg">
         <div>
           <label htmlFor="fullName" className="block text-lg font-medium text-gray-700 mb-2">Full Name</label>
           <input
             {...register("fullName", { required: true, minLength: 3, maxLength: 50 })}
             type="text"
             id="fullName"
-            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.fullName ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.fullName ? 'border-red-500' : 'border-gray-300'}`}
           />
           {errors.fullName && (
             <p className="text-red-500 text-sm mt-1">
@@ -33,7 +33,7 @@ const Contact = () => {
             {...register("email", { required: true, pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i })}
             type="email"
             id="email"
-            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
           />
           {errors.email && (
             <p className="text-red-500 text-sm mt-1">Email is required and must be a valid email address</p>
@@ -45,7 +45,7 @@ const Contact = () => {
             {...register("subject", { required: true, minLength: 3, maxLength: 100 })}
             type="text"
             id="subject"
-            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.subject ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.subject ? 'border-red-500' : 'border-gray-300'}`}
           />
           {errors.subject && (
             <p className="text-red-500 text-sm mt-1">
@@ -61,7 +61,7 @@ const Contact = () => {
             {...register("body", { required: true, minLength: 3, maxLength: 1000 })}
             id="body"
             rows={6}
-            className={`w-full px-5 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.body ? 'border-red-500' : 'border-gray-300'}`}
+            className={`w-full px-4 py-3 border rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-900 text-lg ${errors.body ? 'border-red-500' : 'border-gray-300'}`}
           />
           {errors.body && (
             <p className="text-red-500 text-sm mt-1">

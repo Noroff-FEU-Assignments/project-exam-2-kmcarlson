@@ -2,8 +2,8 @@ import about from "../assets/img/about.jpg";
 
 const About = () => {
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex flex-col sm:flex-row items-center">
+    <div className="container mx-auto flex justify-center items-center p-4 min-h-screen">
+      <div className="flex flex-col sm:flex-row items-center bg-white">
         <div className="flex-shrink-0 mb-4 sm:mb-0 sm:mr-6">
           <img
             src={about}

@@ -34,7 +34,7 @@ const Profiles = () => {
 
   if (!accessToken) {
     return (
-      <div className="text-center m-8">
+      <div className="container mx-auto p-4 min-h-screen flex flex-col justify-center items-center">
         <h2 className="text-lg mb-4">You need to log in to view profiles.</h2>
         <Link to="/login" >
           <button className="bg-blue-900 hover:bg-pink-500 text-white font-bold py-2 px-4 rounded p-10">
