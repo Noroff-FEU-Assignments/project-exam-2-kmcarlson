@@ -1,5 +1,8 @@
 # Project Exam 2
 
+![exam](https://github.com/user-attachments/assets/69986a6d-301a-4ffe-bd9b-f40c2f829c1e)
+
+
 ## Description
 
 This project aims to create a brand new front end for an existing social media company. The design and user experience have not been specified, so it is up to us to plan, design, and build a modern front-end social media application. We will be working with the official API documentation to ensure seamless integration.
